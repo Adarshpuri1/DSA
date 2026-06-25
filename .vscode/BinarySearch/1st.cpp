@@ -1,20 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int lowerBound(vector<int>& arr, int target) {
+int BinarySearch(vector<int>& arr, int target) {
     int left = 0;
     int right = arr.size() - 1;
-    int ans = arr.size();
+    int ans = 0;
 
     while (left <= right) {
-        int mid = left + (right - left) / 2;
+        int mid = (right + left) / 2;
 
-        if (arr[mid] >= target) {
-            ans = mid;
+        if (arr[mid] > target) {
             right = mid - 1;
+        }
+        else if(arr[mid]<target){
+            left=mid+1;
         } 
         else {
-            left = mid + 1;
+            ans = mid;
+            break;
         }
     }
 
@@ -22,18 +25,12 @@ int lowerBound(vector<int>& arr, int target) {
 }
 
 int main() {
-    vector<int> arr = {1, 2, 2, 2, 5, 7};
-    int target = 2;
+    vector<int> arr = {1, 2, 3, 4, 5, 7};
+    int target = 5;
 
-    int index = lowerBound(arr, target);
+    int index = BinarySearch(arr, target);
 
-    cout << "Lower Bound Index: " << index << endl;
-
-    if (index < arr.size()) {
-        cout << "Lower Bound Value: " << arr[index] << endl;
-    } else {
-        cout << "No value greater than or equal to target" << endl;
-    }
+    cout << "Target Index: " << index << endl;
 
     return 0;
 }
