@@ -24,16 +24,46 @@ int Palindrome(int n){
     }
     return reverse;
 }
+int digit(int n){
+    int num=n;
+    int count=0;
+    while(num!=0){
+        int reminder=num%10;
+        count=count+1;
+        num=num/10;
+    }
+    int number=n;
+    int ans=0;
+    while(number!=0){
+        int reminder=number%10;
+        ans += pow(reminder,count);
+        number=number/10;
+    }
+    return ans;
+
+}
 
 int main(){
-    int n=111;
+    
     // cout << fixed << setprecision(2) << sqrt(n);
-    int reverse= Palindrome(n);
-    if(n==reverse){
-        cout<<"this is palindrom";
+    // int reverse= Palindrome(n);
+    // if(n==reverse){
+    //     cout<<"this is palindrom";
+    // }
+    // else{
+    //     cout<<"Not Palindrom";
+    // }
+    int n=123;
+
+    int i=0;
+    int j=1;
+
+    for(int i=0; i<5; i++){
+        
     }
-    else{
-        cout<<"Not Palindrom";
-    }
+    
+
+
+
 
 }
