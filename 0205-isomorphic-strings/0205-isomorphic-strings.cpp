@@ -6,24 +6,13 @@ public:
         for(int i=0; i<s.size(); i++){
             char a=s[i];
             char b=t[i];
-            //map1
-            if(mp1.count(a)){
-                if(mp1[a]!=b){
-                    return false;
-                }
-            }else{
-                mp1[a]=b;
-            }
-
-            //map2
-            if(mp2.count(b)){
-                if(mp2[b]!=a){
-                    return false;
-                }
-            }
-            else{
-                mp2[b]=a;
-            }
+        
+            if((mp1.count(a) && mp1[a]!=b) || 
+               (mp2.count(b) && mp2[b]!=a)) {
+                return false;
+            } 
+            mp1[a]=b;
+            mp2[b]=a;
         }
         return true;
     }
