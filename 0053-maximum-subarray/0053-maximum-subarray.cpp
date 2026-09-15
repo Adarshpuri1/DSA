@@ -4,7 +4,7 @@ public:
         int ans=nums[0];
         int sum=nums[0];
         for(int i=1; i<nums.size(); i++){
-            if(sum<=0){
+            if(sum<0){
                 sum=0;
             }
             sum=sum+nums[i];
